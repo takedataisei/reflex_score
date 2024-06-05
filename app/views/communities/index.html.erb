@@ -1,11 +1,17 @@
-<header>
-  <h1>Reflex Score</h1>
-  <p>コミュニティで自己成長をサポート</p>
-</header>
+<%= render 'shared/header' %>
 <div class="container">
   <div class="sidebar">
       <div id="auth-buttons">
-          
+        <% if user_signed_in? %>
+          <%= link_to 'プロフィール', "#", class: 'list' %>
+          <%= link_to 'コミュニティの作成', '#', class: 'list' %>
+          <%= link_to 'コミュニティへ参加', '#', class: 'list' %>
+          <a href="#" id="toggle-community-list" class="list">コミュニティ一覧</a>
+          <%= link_to 'ログアウト', destroy_user_session_path, data: {turbo_method: :delete}, class: 'list' %>
+        <% else %>
+          <%= link_to '新規登録', new_user_registration_path, class: 'list' %>
+          <%= link_to 'ログイン', new_user_session_path, class: 'list' %>
+        <% end %>
       </div>
   </div>
   <div class="content">
@@ -13,7 +19,7 @@
       <div class="overview-content">
         <h2>Reflex Scoreとは？</h2>
         <p>Reflex Scoreは、コミュニティ内での自己評価と他者評価を通じて、個人の成長を促進するためのアプリケーションです。</p>
-        <a href="#" class="btn-start">今すぐ始める</a>
+        <a href="/users/sign_up" class="btn-start">今すぐ始める</a>
       </div>
     </section>
     <div class="features">
