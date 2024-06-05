@@ -3,7 +3,7 @@
   <div class="sidebar">
       <div id="auth-buttons">
         <% if user_signed_in? %>
-          <%= link_to 'プロフィール', "#", class: 'list' %>
+          <%= link_to 'プロフィール', user_path(current_user.id), class: 'list' %>
           <%= link_to 'コミュニティの作成', '#', class: 'list' %>
           <%= link_to 'コミュニティへ参加', '#', class: 'list' %>
           <a href="#" id="toggle-community-list" class="list">コミュニティ一覧</a>
