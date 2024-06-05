@@ -1,2 +1,17 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= render 'shared/header' %>
+<div class="profile">
+  <div class="profile-header">
+    <% if @user.image.attached? %>
+      <%= image_tag @user.image %>
+    <% else %>
+    <%= image_tag 'no_image.png' %>
+    <% end %>
+      <h1><%= @user.username %></h1>
+  </div>
+  <div class="profile-info">
+      <p><strong>プロフィール</strong><br><%= @user.profile %></p>
+  </div>
+  <% if user_signed_in? && current_user.id == @user.id %>
+    <%= link_to 'プロフィールの編集', edit_user_path(@user), class: 'edit-profile-link' %>
+  <% end %>
+</div>
