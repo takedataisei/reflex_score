@@ -1,34 +1,3 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f8f9fa;
-}
-
-header {
-  background: linear-gradient(135deg, #111010, #242424);
-  color: #FFF;
-  text-align: center;
-  padding: 2rem 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-  margin: 0;
-  font-size: 3rem;
-  font-weight: bold;
-  letter-spacing: 2px;
-  font-family: 'Arial Black', sans-serif;
-}
-
-header p {
-  margin: 0.5rem 0 0;
-  font-size: 1.5rem;
-  font-family: 'Arial', sans-serif;
-  font-style: italic;
-}
-
-
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -48,6 +17,12 @@ header p {
   text-decoration: none;
   display: block;
   padding: 0.5rem 0;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.sidebar a:hover {
+  background-color: #0056b3;
 }
 
 /* content内の基本スタイル */
@@ -137,20 +112,6 @@ header p {
   font-size: 1rem;
   line-height: 1.5;
   color: #666;
-}
-
-/* ボタンスタイル */
-.btn {
-  padding: 10px 20px;
-  background-color: #007BFF;
-  color: #FFF;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-right: 10px;
-}
-
-.btn:hover {
-  background-color: #0056b3;
 }
 
 /* メディアクエリ */

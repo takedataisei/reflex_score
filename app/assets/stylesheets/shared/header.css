@@ -1,0 +1,27 @@
+header {
+  background: linear-gradient(135deg, #111010, #242424);
+  color: #FFF;
+  text-align: center;
+  padding: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-family: 'Arial Black', sans-serif;
+  text-decoration: none;
+}
+
+header a{
+  text-decoration: none;
+  color: white;
+}
+
+header p {
+  margin: 0.5rem 0 0;
+  font-size: 1.5rem;
+  font-family: 'Arial', sans-serif;
+}
