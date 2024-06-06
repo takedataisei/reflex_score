@@ -1,0 +1,52 @@
+.profile-edit {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.profile-edit .profile-header {
+  margin-bottom: 30px;
+}
+.profile-edit .profile-header h1 {
+  font-size: 24px;
+  color: #333;
+}
+.profile-edit .field {
+  margin-bottom: 20px;
+}
+.profile-edit .field label {
+  display: block;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 5px;
+}
+.profile-edit .field input,
+.profile-edit .field textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.profile-edit .field textarea {
+  resize: vertical;
+  height: 100px;
+}
+.profile-edit .actions {
+  margin-top: 20px;
+}
+.profile-edit .update-button {
+  padding: 10px 20px;
+  background-color: darkblue;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.profile-edit .update-button:hover {
+  background-color: mediumblue;
+}
