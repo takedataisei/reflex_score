@@ -6,5 +6,8 @@ class User < ApplicationRecord
 
   has_one_attached :image
 
+  has_many :community_memberships
+  has_many :communities, through: :community_memberships
+
   validates :username, presence: true
 end
