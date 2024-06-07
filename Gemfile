@@ -75,3 +75,5 @@ gem 'devise'
 
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
+
+gem 'bcrypt', '~> 3.1.7'
