@@ -4,7 +4,7 @@
         <% if user_signed_in? %>
           <%= link_to 'プロフィール', user_path(current_user.id), class: 'list' %>
           <%= link_to 'コミュニティの作成', new_community_path, class: 'list' %>
-          <%= link_to 'コミュニティへ参加', '#', class: 'list' %>
+          <%= link_to 'コミュニティへ参加', join_community_path, class: 'list' %>
           <a href="#" id="toggle-community-list" class="list">コミュニティ一覧</a>
           <%= link_to 'ログアウト', destroy_user_session_path, data: {turbo_method: :delete}, class: 'list' %>
         <% else %>

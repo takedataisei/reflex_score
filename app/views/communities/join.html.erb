@@ -1,0 +1,18 @@
+<div id="flash-messages">
+  <% flash.each do |key, message| %>
+    <div class="flash <%= key %>"><%= message %></div>
+  <% end %>
+</div>
+<%= form_with url: join_community_path, local: true do |f| %>
+  <div>
+    <%= f.label :name, 'コミュニティ名' %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :password, 'パスワード' %>
+    <%= f.password_field :password %>
+  </div>
+
+  <%= f.submit '参加する' %>
+<% end %>
