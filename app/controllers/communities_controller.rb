@@ -1,5 +1,6 @@
 class CommunitiesController < ApplicationController
   def index
+    @communities = current_user.communities
   end
 
   def new
