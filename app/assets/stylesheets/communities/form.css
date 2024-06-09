@@ -33,6 +33,12 @@
   box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
 }
 
+.community-form .btn-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
 .community-form .btn {
   display: block;
   width: 100%;
@@ -46,6 +52,14 @@
   transition: background-color 0.3s;
 }
 
+.community-form .btn-secondary {
+  background-color: #6c757d;
+}
+
 .community-form .btn:hover {
   background-color: #0056b3;
+}
+
+.community-form .btn-secondary:hover {
+  background-color: #5a6268;
 }

@@ -1,0 +1,29 @@
+<%= form_with model: @community, local: true, html: { class: 'community-form' } do |f| %>
+<%= render 'shared/error_messages', model: @community %>
+  <div class="form-group">
+    <%= f.label :name, 'コミュニティ名' %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, 'コミュニティの説明' %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :members, 'コミュニティメンバー' %>
+    <ul>
+      <% @community.community_memberships.each do |membership| %>
+        <li>
+          <%= membership.user.username %> - 
+          <%= f.select :role, options_for_select(CommunityMembership.roles.keys.map { |role| [role.humanize, role] }, membership.role), { include_blank: false }, { name: "community[memberships][#{membership.id}][role]", class: 'form-control role-select' } %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="form-group btn-container">
+    <%= f.submit '更新', class: 'btn btn-primary' %>
+    <%= link_to 'コミュニティ詳細に戻る', community_path(@community), class: 'btn btn-secondary' %>
+  </div>
+<% end %>

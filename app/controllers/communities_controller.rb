@@ -55,6 +55,18 @@ class CommunitiesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @community.update(community_params)
+      update_memberships
+      redirect_to community_path(@community)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
   def community_params
     params.require(:community).permit(:name, :password, :password_confirmation, :description, user_ids:[])
@@ -66,5 +78,12 @@ class CommunitiesController < ApplicationController
   
   def set_community
     @community = Community.find(params[:id])
+  end
+
+  def update_memberships
+    params[:community][:memberships].each do |id, membership_params|
+      membership = @community.community_memberships.find(id)
+      membership.update(role: membership_params[:role])
+    end
   end
 end
