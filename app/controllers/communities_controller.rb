@@ -1,5 +1,9 @@
 class CommunitiesController < ApplicationController
+  before_action :authenticate_user!, except: :index
   before_action :set_community, only: [:show, :edit, :update, :leave]
+  before_action :check_membership, only: [:show, :edit, :update, :leave]
+  rescue_from ActiveRecord::RecordNotFound, with: :community_not_found
+
   def index
     if user_signed_in?
       @communities = current_user.communities
@@ -63,6 +67,7 @@ class CommunitiesController < ApplicationController
       update_memberships
       redirect_to community_path(@community)
     else
+      flash.now[:alert] = '更新できませんでした'
       render :edit, status: :unprocessable_entity
     end
   end
@@ -85,5 +90,17 @@ class CommunitiesController < ApplicationController
       membership = @community.community_memberships.find(id)
       membership.update(role: membership_params[:role])
     end
+  end
+
+  def check_membership
+    unless @community.users.include?(current_user)
+      flash[:alert] = 'このコミュニティに参加していません'
+      redirect_to root_path
+    end
+  end
+
+  def community_not_found
+    flash[:alert] = "存在しないコミュニティです。"
+    redirect_to root_path
   end
 end

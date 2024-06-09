@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user
   before_action :authenticate_user!
   before_action :move_to_root, only: :edit
+  rescue_from ActiveRecord::RecordNotFound, with: :user_not_found
 
   def show
   end
@@ -29,5 +30,10 @@ class UsersController < ApplicationController
     if @user.id != current_user.id
       redirect_to root_path
     end
+  end
+
+  def user_not_found
+    flash[:alert] = "存在しないユーザーです。"
+    redirect_to root_path
   end
 end
