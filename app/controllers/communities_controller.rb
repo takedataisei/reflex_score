@@ -1,6 +1,8 @@
 class CommunitiesController < ApplicationController
   def index
-    @communities = current_user.communities
+    if user_signed_in?
+      @communities = current_user.communities
+    end
   end
 
   def new
@@ -35,6 +37,10 @@ class CommunitiesController < ApplicationController
       flash.now[:alert] = 'コミュニティ名またはパスワードが正しくありません'
       render_flash
     end
+  end
+
+  def show
+    @community = Community.find(params[:id])
   end
 
   private
