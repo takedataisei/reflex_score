@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   get 'communities/join', to: 'communities#join', as: 'join_community'
   post 'communities/join', to: 'communities#process_join'
-  resources :communities, only: [:new, :create, :show]
+  resources :communities, only: [:new, :create, :show] do
+    member do
+      delete 'leave', to: 'communities#leave'
+    end
+  end
 end

@@ -1,4 +1,5 @@
 class CommunitiesController < ApplicationController
+  before_action :set_community, only: [:show, :edit, :update, :leave]
   def index
     if user_signed_in?
       @communities = current_user.communities
@@ -40,7 +41,18 @@ class CommunitiesController < ApplicationController
   end
 
   def show
-    @community = Community.find(params[:id])
+  end
+
+  def leave
+    membership = current_user.community_memberships.find_by(community: @community)
+    if membership
+      membership.destroy
+      flash[:notice] = 'コミュニティを抜けました'
+      redirect_to root_path
+    else
+      flash[:alert] = 'コミュニティを抜けられませんでした'
+      redirect_to community_path(@community)
+    end
   end
 
   private
@@ -52,4 +64,7 @@ class CommunitiesController < ApplicationController
     render turbo_stream: turbo_stream.update("flash", partial: "shared/flash")
   end
   
+  def set_community
+    @community = Community.find(params[:id])
+  end
 end
