@@ -25,6 +25,23 @@
   background-color: #0056b3;
 }
 
+.menu-item{
+  color: white;
+  display: block;
+  padding: 0.5rem 0;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.community-list {
+  display: none;
+  list-style-type: none;
+  padding: 10px;
+  background-color: #272a2e;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
 /* content内の基本スタイル */
 .content {
   width: 75%;

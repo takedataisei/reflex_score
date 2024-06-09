@@ -1,0 +1,15 @@
+<div class="community-form">
+  <%= form_with url: join_community_path, local: true do |f| %>
+    <div class="form-group">
+      <%= f.label :name, 'コミュニティ名' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password, 'パスワード' %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+
+    <%= f.submit '参加する', class: 'btn' %>
+  <% end %>
+</div>
