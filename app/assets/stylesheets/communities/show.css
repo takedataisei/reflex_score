@@ -79,6 +79,10 @@
   color: #333;
 }
 
+.card-content h3.admin-name {
+  color: #10ef1b;
+}
+
 .card:hover {
   transform: scale(1.05);
 }

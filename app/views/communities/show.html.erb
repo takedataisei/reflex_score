@@ -28,7 +28,7 @@
                   <% end %>
                 </div>
                 <div class="card-content">
-                  <h3><%= user.username %></h3>
+                  <h3 class="<%= 'admin-name' if user.community_memberships.find_by(community: @community).role == 'admin' %>"><%= user.username %></h3>
                   <% if user == current_user %>
                     <%= button_to 'コミュニティを抜ける', '#', class: 'leave-button' %>
                   <% end %>
