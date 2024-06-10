@@ -3,6 +3,7 @@ class CommunitiesController < ApplicationController
   before_action :set_community, only: [:show, :edit, :update, :leave]
   before_action :check_membership, only: [:show, :edit, :update, :leave]
   rescue_from ActiveRecord::RecordNotFound, with: :community_not_found
+  before_action :check_admin, only: [:edit, :update]
 
   def index
     if user_signed_in?
@@ -100,7 +101,15 @@ class CommunitiesController < ApplicationController
   end
 
   def community_not_found
-    flash[:alert] = "存在しないコミュニティです。"
+    flash[:alert] = '存在しないコミュニティです。'
     redirect_to root_path
+  end
+
+  def check_admin
+    membership = @community.community_memberships.find_by(user: current_user)
+    unless membership&.admin?
+      flash[:alert] = '編集権限がありません'
+      redirect_to community_path(@community)
+    end
   end
 end
