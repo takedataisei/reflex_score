@@ -1,0 +1,120 @@
+#evaluation-items-container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+#evaluation-items-container h2 {
+  text-align: center;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+#evaluation-items-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#evaluation-items-container li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+#evaluation-items-container li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#evaluation-items-container .btn {
+  padding: 8px 12px;
+  background-color: #dc3545;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#evaluation-items-container .btn:hover {
+  background-color: #c82333;
+}
+
+#evaluation-items-container .form-group {
+  margin-top: 30px;
+  text-align: center;
+}
+
+#evaluation-items-container .form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+}
+
+#evaluation-items-container .form-control {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+#evaluation-items-container .form-control:focus {
+  border-color: #66afe9;
+  outline: none;
+  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+#evaluation-items-container .add-btn {
+  display: block;
+  width: 50%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 0 auto 20px;
+}
+
+#evaluation-items-container .add-btn:hover {
+  background-color: #0056b3;
+}
+
+#evaluation-items-container .btn-secondary {
+  display: block;
+  width: 50%;
+  padding: 10px;
+  background-color: #6c757d;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  margin: 20px auto 0;
+}
+
+#evaluation-items-container .btn-secondary:hover {
+  background-color: #5a6268;
+}
