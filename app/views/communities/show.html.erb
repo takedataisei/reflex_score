@@ -11,7 +11,21 @@
       <div class="community-section">
         <h2>評価項目</h2>
         <div class="card-container">
-          <!-- 評価項目の内容を追加 -->
+          <% @community.evaluation_items.each do |item| %>
+            <div class="card">
+              <div class="card-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="card-content">
+                <h3><%= item.name %></h3>
+              </div>
+            </div>
+          <% end %>
+          <% if current_user.community_memberships.find_by(community: @community).role == 'admin' %>
+            <div class="edit-container">
+              <%= link_to '編集', community_evaluation_items_path(@community), class: 'edit-link' %>
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="community-section">
@@ -40,7 +54,9 @@
         </div>
       </div>
       <% if current_user.community_memberships.find_by(community: @community).role == 'admin' %>
-        <%= link_to 'コミュニティを編集', edit_community_path(@community), class: 'edit-button' %>
+        <div class="edit-container">
+          <%= link_to 'コミュニティを編集', edit_community_path(@community), class: 'edit-button' %>
+        </div>
       <% end %>
     </div>
   </div>

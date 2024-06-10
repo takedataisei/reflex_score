@@ -1,0 +1,25 @@
+<div id="evaluation-items-container">
+  <h2>評価項目一覧</h2>
+  <% if @evaluation_items.any? %>
+    <ul>
+      <% @evaluation_items.each do |item| %>
+        <li>
+          <%= item.name %>
+          <%= link_to '削除', community_evaluation_item_path(@community.id, item.id), data:{turbo_method: :delete, confirm:'本当に削除しますか？'}, class: 'btn' %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>評価項目はまだありません</p>
+  <% end %>
+  <%= form_with model: [@community, @evaluation_item], local: true do |f| %>
+    <div class="form-group">
+      <%= f.label :name, '新しい評価項目' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.submit '追加', class: 'add-btn' %>
+    </div>
+  <% end %>
+  <%= link_to 'コミュニティ詳細に戻る', community_path(@community), class: 'btn btn-secondary' %>
+</div>
