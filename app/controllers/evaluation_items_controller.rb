@@ -1,9 +1,10 @@
 class EvaluationItemsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_community
+  before_action :check_admin
   before_action :set_evaluation_items, except: :destroy
 
   def index
-    
     @evaluation_item = @community.evaluation_items.new
   end
 
@@ -26,6 +27,14 @@ class EvaluationItemsController < ApplicationController
 
   def set_community
     @community = Community.find(params[:community_id])
+  end
+
+  def check_admin
+    membership = @community.community_memberships.find_by(user: current_user)
+    unless membership&.admin?
+      flash[:alert] = '編集権限がありません'
+      redirect_to community_path(@community)
+    end
   end
 
   def set_evaluation_items
