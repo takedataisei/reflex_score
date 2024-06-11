@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :community_memberships
   has_many :communities, through: :community_memberships
+  has_many :self_evaluations
+  has_many :peer_evaluations
 
   validates :username, presence: true
 end
