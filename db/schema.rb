@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_10_050529) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_10_143711) do
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -65,6 +65,30 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_10_050529) do
     t.index ["community_id"], name: "index_evaluation_items_on_community_id"
   end
 
+  create_table "peer_evaluations", charset: "utf8", force: :cascade do |t|
+    t.bigint "evaluation_item_id", null: false
+    t.bigint "evaluator_id", null: false
+    t.bigint "evaluatee_id", null: false
+    t.integer "score", null: false
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["evaluatee_id"], name: "index_peer_evaluations_on_evaluatee_id"
+    t.index ["evaluation_item_id"], name: "index_peer_evaluations_on_evaluation_item_id"
+    t.index ["evaluator_id"], name: "index_peer_evaluations_on_evaluator_id"
+  end
+
+  create_table "self_evaluations", charset: "utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "evaluation_item_id", null: false
+    t.integer "score", null: false
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["evaluation_item_id"], name: "index_self_evaluations_on_evaluation_item_id"
+    t.index ["user_id"], name: "index_self_evaluations_on_user_id"
+  end
+
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -84,4 +108,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_10_050529) do
   add_foreign_key "community_memberships", "communities"
   add_foreign_key "community_memberships", "users"
   add_foreign_key "evaluation_items", "communities"
+  add_foreign_key "peer_evaluations", "evaluation_items"
+  add_foreign_key "peer_evaluations", "users", column: "evaluatee_id"
+  add_foreign_key "peer_evaluations", "users", column: "evaluator_id"
+  add_foreign_key "self_evaluations", "evaluation_items"
+  add_foreign_key "self_evaluations", "users"
 end
