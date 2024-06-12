@@ -9,5 +9,6 @@ Rails.application.routes.draw do
       delete 'leave', to: 'communities#leave'
     end
     resources :evaluation_items, only: [:index, :create, :destroy]
+    resources :self_evaluations, only: [:new, :create]
   end
 end

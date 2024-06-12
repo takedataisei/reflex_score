@@ -1,6 +1,6 @@
 class SelfEvaluation < ApplicationRecord
   belongs_to :evaluation_item
-  belongs_to :evaluator, class_name: 'User'
-  belongs_to :evaluatee, class_name: 'User'
-  validates :score, presence: true
+  belongs_to :user
+  
+  validates :score, presence: true, inclusion: { in: 1..5, message: "must be between 1 and 5" }
 end
