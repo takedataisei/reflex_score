@@ -1,7 +1,8 @@
 <div class="sidebar">
   <div id="auth-buttons">
     <%= link_to 'コミュニティ', community_path(community), class: 'list' %>
-    <%= link_to '自己評価投稿', new_community_self_evaluation_path(community), class: 'list' %>
-    <%= link_to '他者評価投稿', '#', class: 'list' %>
+    <%= link_to '自己評価を投稿する', new_community_self_evaluation_path(community), class: 'list' %>
+    <%= link_to '自己評価一覧', community_self_evaluations_path(community), class: 'list' %>
+    <%= link_to '他者評価を投稿する', '#', class: 'list' %>
   </div>
 </div>

@@ -11,7 +11,7 @@
             <li>
               <div class="evaluation-header">
                 <strong>ユーザー:</strong> <%= self_evaluation.user.username %>
-                <span class="evaluation-date"><%= self_evaluation.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M:%S") %></span>
+                <span class="evaluation-date"><%= l self_evaluation.created_at, format: :short %></span>
               </div>
               <div class="star-rating">
                 <% self_evaluation.score.times do %>
@@ -36,7 +36,7 @@
             <li>
               <div class="evaluation-header">
                 <strong>評価者:</strong> <%= peer_evaluation.evaluator.username %>
-                <span class="evaluation-date"><%= peer_evaluation.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M:%S") %></span>
+                <span class="evaluation-date"><%= l peer_evaluation.created_at, format: :short %></span>
               </div>
               <strong>評価対象者:</strong> <%= peer_evaluation.evaluatee.username %><br>
               <div class="star-rating">

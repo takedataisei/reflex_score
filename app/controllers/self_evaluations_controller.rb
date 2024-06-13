@@ -1,6 +1,11 @@
 class SelfEvaluationsController < ApplicationController
   before_action :set_community
   before_action :set_evaluation_items
+
+  def index
+    @self_evaluations = current_user.self_evaluations.order('created_at DESC')
+  end
+
   def new
     @self_evaluation = SelfEvaluation.new
   end

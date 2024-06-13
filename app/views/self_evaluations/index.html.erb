@@ -1,0 +1,28 @@
+<div class="container">
+  <%= render 'shared/community_sidebar', community: @community %>
+  <div class="content">
+    <div class="self-evaluation-list">
+      <h2>自己評価一覧</h2>
+      <% if @self_evaluations.any? %>
+        <ul>
+          <% @self_evaluations.each do |self_evaluation| %>
+            <li>
+              <strong>評価項目:</strong> <%= self_evaluation.evaluation_item.name %>
+              <span class="date"><%= l self_evaluation.created_at, format: :short %></span><br>
+              <% self_evaluation.score.times do %>
+                <span class="star selected">&#9733;</span>
+              <% end %>
+              <% (5 - self_evaluation.score).times do %>
+                <span class="star">&#9733;</span>
+              <% end %>
+              <div class="comment"><strong>コメント:</strong> <%= self_evaluation.comment %></div>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>自己評価はまだありません。</p>
+      <% end %>
+      <%= link_to '戻る', community_path(@community), class: 'btn' %>
+    </div>
+  </div>
+</div>
