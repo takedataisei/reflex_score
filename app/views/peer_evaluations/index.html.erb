@@ -1,0 +1,32 @@
+<div class="container">
+  <%= render 'shared/community_sidebar', community: @community %>
+  <div class="content">
+    <div class="self-evaluation-list">
+      <h2>評価済み一覧</h2>
+      <% if @peer_evaluations.any? %>
+        <ul>
+          <% @peer_evaluations.each do |peer_evaluation| %>
+            <li>
+              <strong>評価対象:</strong> <%= peer_evaluation.evaluatee.username %>
+              <span class="date"><%= l peer_evaluation.created_at, format: :short %></span><br>
+              <strong>評価項目:</strong> <%= peer_evaluation.evaluation_item.name %></br>
+              <% peer_evaluation.score.times do %>
+                <span class="star selected">&#9733;</span>
+              <% end %>
+              <% (5 - peer_evaluation.score).times do %>
+                <span class="star">&#9733;</span>
+              <% end %>
+              <div class="comment"><strong>コメント:</strong> <%= peer_evaluation.comment %></div>
+              <div class="actions">
+                <%= link_to '編集', edit_community_peer_evaluation_path(@community, peer_evaluation), class: 'btn btn-secondary' %>
+                <%= link_to '削除', community_peer_evaluation_path(@community, peer_evaluation), data: {turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>他者評価はまだありません。</p>
+      <% end %>
+    </div>
+  </div>
+</div>

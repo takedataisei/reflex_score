@@ -40,10 +40,10 @@
               </div>
               <strong>評価対象者:</strong> <%= peer_evaluation.evaluatee.username %><br>
               <div class="star-rating">
-                <% self_evaluation.score.times do %>
+                <% peer_evaluation.score.times do %>
                   <span class="star selected">&#9733;</span>
                 <% end %>
-                <% (5 - self_evaluation.score).times do %>
+                <% (5 - peer_evaluation.score).times do %>
                   <span class="star">&#9733;</span>
                 <% end %>
               </div>
