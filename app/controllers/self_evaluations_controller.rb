@@ -33,7 +33,7 @@ class SelfEvaluationsController < ApplicationController
 
   def destroy
     @self_evaluation.destroy
-    redirect_to community_self_evaluations_path(@community), notice: '評価項目が削除されました'
+    redirect_to community_self_evaluations_path(@community), notice: '自己評価が削除されました'
   end
 
   private

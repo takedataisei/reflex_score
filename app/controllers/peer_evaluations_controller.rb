@@ -2,6 +2,7 @@ class PeerEvaluationsController < ApplicationController
   before_action :set_community
   before_action :set_evaluation_items, only: [:new, :edit, :create, :update]
   before_action :set_users, only: [:new, :edit, :create, :update]
+  before_action :set_peer_evaluation, only: [:edit, :update, :destroy]
 
   def new
     @peer_evaluation = PeerEvaluation.new
@@ -23,6 +24,11 @@ class PeerEvaluationsController < ApplicationController
   def edit
   end
 
+  def destroy
+    @peer_evaluation.destroy
+    redirect_to community_peer_evaluations_path(@community), notice: '他者評価が削除されました'
+  end
+
   private
   def set_community
     @community = Community.find(params[:community_id])
@@ -38,5 +44,9 @@ class PeerEvaluationsController < ApplicationController
 
   def peer_evaluation_params
     params.require(:peer_evaluation).permit(:evaluatee_id, :evaluation_item_id, :score, :comment).merge(evaluator_id: current_user.id)
+  end
+
+  def set_peer_evaluation
+    @peer_evaluation = PeerEvaluation.find(params[:id])
   end
 end
