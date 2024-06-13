@@ -1,0 +1,29 @@
+<div class="container">
+  <%= render 'shared/community_sidebar', community: @community %>
+  <%= form_with model: [@community, @self_evaluation], local: true, html: { class: 'self-evaluation-form' } do |f| %>
+    <%= render 'shared/error_messages', model: @self_evaluation %>
+    <div class="form-group">
+      <%= f.label :evaluation_item_id, '評価項目' %>
+      <%= f.collection_select :evaluation_item_id, @evaluation_items, :id, :name, prompt: '評価項目を選択してください', class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :score, 'スコア' %>
+      <div class="star-rating">
+        <% 5.times do |i| %>
+          <span class="star" data-value="<%= i + 1 %>">&#9733;</span>
+        <% end %>
+      </div>
+      <%= f.hidden_field :score, class: 'form-control', id: 'score-input' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :comment, 'コメント' %>
+      <%= f.text_area :comment, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit '投稿', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

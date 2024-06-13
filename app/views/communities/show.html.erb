@@ -1,8 +1,6 @@
 <div class="container">
-  <div class="sidebar">
-    <!-- サイドバーの中身は後で追加 -->
-  </div>
-  <div class="main-content">
+  <%= render 'shared/community_sidebar', community: @community %>
+  <div class="content">
     <div class="community-details">
       <div class="community-header">
         <h1><%= @community.name %></h1>
@@ -12,14 +10,16 @@
         <h2>評価項目</h2>
         <div class="card-container">
           <% @community.evaluation_items.each do |item| %>
-            <div class="card">
-              <div class="card-icon">
-                <i class="fas fa-star"></i>
+            <%= link_to community_evaluation_item_path(@community, item) do %>
+              <div class="card">
+                <div class="card-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="card-content">
+                  <h3><%= item.name %></h3>
+                </div>
               </div>
-              <div class="card-content">
-                <h3><%= item.name %></h3>
-              </div>
-            </div>
+            <% end %>
           <% end %>
           <% if current_user.community_memberships.find_by(community: @community).role == 'admin' %>
             <div class="edit-container">

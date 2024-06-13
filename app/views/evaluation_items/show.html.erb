@@ -1,0 +1,61 @@
+<div class="container">
+  <%= render 'shared/community_sidebar', community: @community %>
+  <div class="content">
+    <div class="evaluation-details">
+      <h1><%= @evaluation_item.name %></h1>
+    
+      <h2>自己評価一覧</h2>
+      <% if @self_evaluations.any? %>
+        <ul>
+          <% @self_evaluations.each do |self_evaluation| %>
+            <li>
+              <div class="evaluation-header">
+                <strong>ユーザー:</strong> <%= self_evaluation.user.username %>
+                <span class="evaluation-date"><%= l self_evaluation.created_at, format: :short %></span>
+              </div>
+              <div class="star-rating">
+                <% self_evaluation.score.times do %>
+                  <span class="star selected">&#9733;</span>
+                <% end %>
+                <% (5 - self_evaluation.score).times do %>
+                  <span class="star">&#9733;</span>
+                <% end %>
+              </div>
+              <strong>コメント:</strong> <%= simple_format(self_evaluation.comment) %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>自己評価はまだありません。</p>
+      <% end %>
+    
+      <h2>他者評価一覧</h2>
+      <% if @peer_evaluations.any? %>
+        <ul>
+          <% @peer_evaluations.each do |peer_evaluation| %>
+            <li>
+              <div class="evaluation-header">
+                <strong>評価者:</strong> <%= peer_evaluation.evaluator.username %>
+                <span class="evaluation-date"><%= l peer_evaluation.created_at, format: :short %></span>
+              </div>
+              <strong>評価対象者:</strong> <%= peer_evaluation.evaluatee.username %><br>
+              <div class="star-rating">
+                <% self_evaluation.score.times do %>
+                  <span class="star selected">&#9733;</span>
+                <% end %>
+                <% (5 - self_evaluation.score).times do %>
+                  <span class="star">&#9733;</span>
+                <% end %>
+              </div>
+              <strong>コメント:</strong> <%= simple_format(peer_evaluation.comment) %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>他者評価はまだありません。</p>
+      <% end %>
+    
+      <%= link_to '戻る', community_path(@community), class: 'btn btn-secondary' %>
+    </div>
+  </div>
+</div>

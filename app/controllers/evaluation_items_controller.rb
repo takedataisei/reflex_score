@@ -17,6 +17,12 @@ class EvaluationItemsController < ApplicationController
     end
   end
 
+  def show
+    @evaluation_item = EvaluationItem.find(params[:id])
+    @self_evaluations = @evaluation_item.self_evaluations.includes(:user).order('created_at DESC')
+    @peer_evaluations = @evaluation_item.peer_evaluations.includes(:user).order('created_at DESC')
+  end
+
   def destroy
     @evaluation_item = @community.evaluation_items.find(params[:id])
     @evaluation_item.destroy
