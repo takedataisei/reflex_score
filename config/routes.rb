@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     end
     resources :evaluation_items, only: [:index, :create, :show, :destroy]
     resources :self_evaluations, only: [:new, :create, :index, :edit, :update, :destroy]
+    resources :peer_evaluations, only: [:new, :create, :index, :edit, :update, :destory]
   end
 end

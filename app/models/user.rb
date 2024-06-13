@@ -9,7 +9,8 @@ class User < ApplicationRecord
   has_many :community_memberships
   has_many :communities, through: :community_memberships
   has_many :self_evaluations
-  has_many :peer_evaluations
+  has_many :evaluations_given, class_name: 'PeerEvaluation', foreign_key: 'evaluator_id'
+  has_many :evaluations_received, class_name: 'PeerEvaluation', foreign_key: 'evaluatee_id'
 
   validates :username, presence: true
 end

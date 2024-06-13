@@ -1,7 +1,7 @@
 class EvaluationItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_community
-  before_action :check_admin
+  before_action :check_admin, except: [:show]
   before_action :set_evaluation_items, except: :destroy
 
   def index
@@ -20,7 +20,7 @@ class EvaluationItemsController < ApplicationController
   def show
     @evaluation_item = EvaluationItem.find(params[:id])
     @self_evaluations = @evaluation_item.self_evaluations.includes(:user).order('created_at DESC')
-    @peer_evaluations = @evaluation_item.peer_evaluations.includes(:user).order('created_at DESC')
+    @peer_evaluations = @evaluation_item.peer_evaluations.includes(:evaluator, :evaluatee).order('created_at DESC')
   end
 
   def destroy

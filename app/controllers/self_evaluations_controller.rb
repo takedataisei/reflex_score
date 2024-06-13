@@ -1,6 +1,6 @@
 class SelfEvaluationsController < ApplicationController
   before_action :set_community
-  before_action :set_evaluation_items
+  before_action :set_evaluation_items, only: [:new, :edit, :create, :update]
   before_action :set_self_evaluation, only: [:edit, :update, :destroy]
 
   def index

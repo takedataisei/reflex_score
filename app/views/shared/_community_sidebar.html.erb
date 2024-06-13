@@ -3,6 +3,6 @@
     <%= link_to 'コミュニティ', community_path(community), class: 'list' %>
     <%= link_to '自己評価を投稿する', new_community_self_evaluation_path(community), class: 'list' %>
     <%= link_to '自己評価一覧', community_self_evaluations_path(community), class: 'list' %>
-    <%= link_to '他者評価を投稿する', '#', class: 'list' %>
+    <%= link_to '他者評価を投稿する', new_community_peer_evaluation_path(community), class: 'list' %>
   </div>
 </div>
