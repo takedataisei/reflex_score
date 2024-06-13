@@ -47,16 +47,45 @@
   margin-top: 10px;
 }
 
-.btn {
+.self-evaluation-list .actions {
+  margin-top: 10px;
+}
+
+.self-evaluation-list .btn {
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  padding: 5px 10px;
+  margin-right: 5px;
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
 
-.btn:hover {
+.self-evaluation-list .btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.self-evaluation-list .btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.self-evaluation-list .btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.self-evaluation-list .btn-danger:hover {
+  background-color: #c82333;
+}
+
+.self-evaluation-list .btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+}
+
+.self-evaluation-list .btn-primary:hover {
   background-color: #0056b3;
 }
