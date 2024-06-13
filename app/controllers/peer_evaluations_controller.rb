@@ -17,6 +17,7 @@ class PeerEvaluationsController < ApplicationController
   end
 
   def index
+    @peer_evaluations = PeerEvaluation.joins(:evaluation_item).where(evaluation_items: { community_id: @community.id }, evaluator: current_user).order('created_at DESC')
   end
 
   def edit
