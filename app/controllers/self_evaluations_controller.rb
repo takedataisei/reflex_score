@@ -1,7 +1,7 @@
 class SelfEvaluationsController < ApplicationController
   before_action :set_community
   before_action :set_evaluation_items
-  before_action :set_self_evaluation, only: [:edit, :update]
+  before_action :set_self_evaluation, only: [:edit, :update, :destroy]
 
   def index
     @self_evaluations = current_user.self_evaluations.order('created_at DESC')
@@ -14,7 +14,7 @@ class SelfEvaluationsController < ApplicationController
   def create
     @self_evaluation = SelfEvaluation.new(self_evaluation_params)
     if @self_evaluation.save
-      redirect_to community_path(@community)
+      redirect_to community_self_evaluations_path(@community)
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,6 +29,11 @@ class SelfEvaluationsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @self_evaluation.destroy
+    redirect_to community_self_evaluations_path(@community), notice: '評価項目が削除されました'
   end
 
   private

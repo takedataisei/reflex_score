@@ -18,7 +18,7 @@
               <div class="comment"><strong>コメント:</strong> <%= self_evaluation.comment %></div>
               <div class="actions">
                 <%= link_to '編集', edit_community_self_evaluation_path(@community, self_evaluation), class: 'btn btn-secondary' %>
-                <%= link_to '削除', '#', data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %>
+                <%= link_to '削除', community_self_evaluation_path(@community, self_evaluation), data: {turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %>
               </div>    
             </li>
           <% end %>

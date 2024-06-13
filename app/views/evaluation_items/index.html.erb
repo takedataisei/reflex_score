@@ -5,7 +5,7 @@
       <% @evaluation_items.each do |item| %>
         <li>
           <%= item.name %>
-          <%= link_to '削除', community_evaluation_item_path(@community.id, item.id), data:{turbo_method: :delete, confirm:'本当に削除しますか？'}, class: 'btn' %>
+          <%= link_to '削除', community_evaluation_item_path(@community.id, item.id), data:{turbo_method: :delete, turbo_confirm:'本当に削除しますか？'}, class: 'btn' %>
         </li>
       <% end %>
     </ul>
