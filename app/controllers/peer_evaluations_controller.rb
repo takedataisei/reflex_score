@@ -24,6 +24,14 @@ class PeerEvaluationsController < ApplicationController
   def edit
   end
 
+  def update
+    if @peer_evaluation.update(peer_evaluation_params)
+      redirect_to community_peer_evaluations_path(@community)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @peer_evaluation.destroy
     redirect_to community_peer_evaluations_path(@community), notice: '他者評価が削除されました'
