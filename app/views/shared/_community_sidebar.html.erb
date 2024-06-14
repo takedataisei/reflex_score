@@ -5,5 +5,6 @@
     <%= link_to '自己評価一覧', community_self_evaluations_path(community), class: 'list' %>
     <%= link_to '他者評価を投稿', new_community_peer_evaluation_path(community), class: 'list' %>
     <%= link_to '評価済み一覧', community_peer_evaluations_path(community), class: 'list' %>
+    <%= link_to '評価一覧', community_evaluations_user_path(current_user, community_id: community.id), class: 'list' %>
   </div>
 </div>

@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "communities#index"
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    member do
+      get 'communities/:community_id/evaluations', to: 'users#evaluations', as: 'community_evaluations'
+    end
+  end
   get 'communities/join', to: 'communities#join', as: 'join_community'
   post 'communities/join', to: 'communities#process_join'
   resources :communities, only: [:new, :create, :show, :edit, :update] do

@@ -65,7 +65,7 @@ class SelfEvaluationsController < ApplicationController
   end
 
   def check_contributor
-    if @self_evaluation.evaluatee_id != current_user.id
+    if @self_evaluation.user_id != current_user.id
       redirect_to community_self_evaluations_path(@community)
     end
   end
