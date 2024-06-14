@@ -137,18 +137,18 @@
   transform: scale(1.05);
 }
 
-.edit-button, .leave-button {
-  display: inline-block !important;;
+.edit-button, .leave-button, .profile-button{
+  display: inline-block !important;
   padding: 10px 20px;
   background-color: darkblue;
-  color: #fff !important;;
+  color: #fff !important;
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s;
   text-align: center;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
-.edit-button:hover, .leave-button:hover {
+.edit-button:hover, .leave-button:hover, .profile-button:hover {
   background-color: mediumblue;
 }

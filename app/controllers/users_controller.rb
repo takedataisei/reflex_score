@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   before_action :check_membership, only: :evaluations
 
   def show
+    @referrer = params[:referrer]
   end
 
   def edit
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to user_path(@user.id)
+      redirect_to user_path(@user, referrer: params[:referrer])
     else
       render :edit, status: :unprocessable_entity
     end
