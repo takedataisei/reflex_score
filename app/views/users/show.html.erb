@@ -14,3 +14,6 @@
     <%= link_to 'プロフィールの編集', edit_user_path(@user), class: 'edit-profile-link' %>
   <% end %>
 </div>
+<% if params[:referrer] %>
+  <%= link_to '戻る', params[:referrer], class: 'btn btn-primary btn-back' %>
+<% end %>

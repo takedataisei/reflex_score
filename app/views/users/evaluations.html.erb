@@ -2,7 +2,11 @@
   <%= render 'shared/community_sidebar', community: @community %>
   <div class="content">
     <div class="evaluation-list">
-      <h2><%= @user.username %>の評価一覧</h2>
+      <h2>
+        <%= link_to user_path(@user, referrer: request.original_url), class: 'profile-link' do %>
+          <i class="fas fa-user"></i> <%= @user.username %>の評価一覧
+        <% end %>
+      </h2>
     
       <% @evaluation_items.each do |item| %>
         <div class="evaluation-item">
