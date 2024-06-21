@@ -1,7 +1,7 @@
 <%= form_with model: @community, local: true, html: { class: 'community-form' } do |f| %>
 <%= render 'shared/error_messages', model: @community %>
   <div class="form-group">
-    <%= f.label :name, 'コミュニティ名' %>
+    <%= f.label :name, 'コミュニティ名' %><span class="required">*</span>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
 

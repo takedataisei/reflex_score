@@ -70,7 +70,7 @@ class PeerEvaluationsController < ApplicationController
   end
 
   def check_contributor
-    if @peer_evaluation.evaluatee_id != current_user.id
+    if @peer_evaluation.evaluator_id != current_user.id
       redirect_to community_peer_evaluations_path(@community)
     end
   end

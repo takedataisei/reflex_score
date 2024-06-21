@@ -45,7 +45,7 @@
                   <% membership = user.community_memberships.find_by(community: @community) %>
                   <h3 class="<%= 'admin-name' if user.community_memberships.find_by(community: @community).role == 'admin' %>"><%= user.username %></h3>
                   <% if user == current_user && membership.role != 'admin' %>
-                    <%= link_to 'コミュニティを抜ける', leave_community_path(@community), data:{turbo_method: :delete}, class: 'leave-button' %>
+                    <%= link_to 'コミュニティを抜ける', leave_community_path(@community), data:{turbo_method: :delete, turbo_confirm: '本当にコミュニティを抜けますか？'}, class: 'leave-button' %>
                   <% end %>
                 </div>
               <% end %>

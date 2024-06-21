@@ -13,7 +13,7 @@
 }
 
 .community-form label {
-  display: block;
+  display: inline-block;
   margin-bottom: 5px;
   font-weight: bold;
   color: #333;
@@ -62,4 +62,9 @@
 
 .community-form .btn-secondary:hover {
   background-color: #5a6268;
+}
+
+.required {
+  color: red;
+  margin-left: 5px;
 }

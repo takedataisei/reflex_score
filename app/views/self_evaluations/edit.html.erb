@@ -4,12 +4,12 @@
     <%= form_with model: [@community, @self_evaluation], local: true, html: { class: 'self-evaluation-form' } do |f| %>
     <%= render 'shared/error_messages', model: @self_evaluation %>
     <div class="form-group">
-      <%= f.label :evaluation_item_id, '評価項目' %>
+      <%= f.label :evaluation_item_id, '評価項目' %><span class="required">*</span>
       <%= f.collection_select :evaluation_item_id, @evaluation_items, :id, :name, prompt: '評価項目を選択してください', class: 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :score, 'スコア' %>
+      <%= f.label :score, 'スコア' %><span class="required">*</span>
       <div class="star-rating">
         <% 5.times do |i| %>
           <span class="star" data-value="<%= i + 1 %>">&#9733;</span>

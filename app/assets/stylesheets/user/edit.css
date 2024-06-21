@@ -18,7 +18,7 @@
   margin-bottom: 20px;
 }
 .profile-edit .field label {
-  display: block;
+  display: inline-block;
   font-size: 16px;
   color: #666;
   margin-bottom: 5px;

@@ -32,7 +32,7 @@ a {
   height: 100%;
   position: absolute;
   padding: 90px 70px 50px 70px;
-  background: rgba(150, 218, 255, 0.9);
+  background: rgba(206, 206, 206, 0.9);
 }
 .login-html .sign-in-htm, .login-html .sign-up-htm {
   top: 0;
@@ -153,7 +153,7 @@ a {
 }
 
 .label {
-  display: block;
+  display: inline-block;
   margin-bottom: 5px;
   font-weight: bold;
   color: black;

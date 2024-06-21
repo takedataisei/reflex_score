@@ -3,17 +3,17 @@
   <%= form_with model: [@community, @peer_evaluation], local: true, html: { class: 'self-evaluation-form' } do |f| %>
     <%= render 'shared/error_messages', model: @peer_evaluation %>
     <div class="form-group">
-      <%= f.label :evaluatee_id, '評価対象者' %>
+      <%= f.label :evaluatee_id, '評価対象者' %><span class="required">*</span>
       <%= f.collection_select :evaluatee_id, @users, :id, :username, prompt: '評価するユーザーを選択してください', class: 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :evaluation_item_id, '評価項目' %>
+      <%= f.label :evaluation_item_id, '評価項目' %><span class="required">*</span>
       <%= f.collection_select :evaluation_item_id, @evaluation_items, :id, :name, prompt: '評価項目を選択してください', class: 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :score, 'スコア' %>
+      <%= f.label :score, 'スコア' %><span class="required">*</span>
       <div class="star-rating">
         <% 5.times do |i| %>
           <span class="star" data-value="<%= i + 1 %>">&#9733;</span>
