@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :self_evaluations
   has_many :evaluations_given, class_name: 'PeerEvaluation', foreign_key: 'evaluator_id'
   has_many :evaluations_received, class_name: 'PeerEvaluation', foreign_key: 'evaluatee_id'
-
+  has_many :messages
+  
   validates :username, presence: true
 end
