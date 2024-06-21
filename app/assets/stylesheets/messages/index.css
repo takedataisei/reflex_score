@@ -1,0 +1,75 @@
+.message-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.user-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.message-text {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 8px;
+  position: relative;
+  display: inline-block;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.message-text .username {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.message-text .text {
+  display: block;
+  color: #555;
+}
+
+.message-text .timestamp {
+  display: block;
+  font-size: 0.8em;
+  color: #999;
+  margin-top: 5px;
+}
+
+.message-form {
+  display: flex;
+  border-top: 1px solid #ddd;
+  padding: 10px;
+}
+
+.message-form .field {
+  flex: 1;
+}
+
+#message_content {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.send-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,16 @@
+<div class="container">
+  <%= render 'shared/community_sidebar', community: @community %>
+  <div class="content">
+    <div id="community-id" data-community-id="<%= @community.id %>">
+      <form id="new_message">
+        <input type="text" id="message_content" name="message[content]" placeholder="Type your message..." />
+        <button type="submit" class="send-button">Send</button>
+      </form>
+
+      <div id="messages">
+        <%= render @messages.reverse %>
+      </div>
+
+    </div>
+  </div>
+</div>
