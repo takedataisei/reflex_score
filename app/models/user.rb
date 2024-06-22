@@ -14,4 +14,12 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   
   validates :username, presence: true
+
+  def image_url
+    if image.attached?
+      Rails.application.routes.url_helpers.rails_blob_url(image, only_path: true)
+    else
+      ActionController::Base.helpers.asset_path('no_image.png')
+    end
+  end
 end

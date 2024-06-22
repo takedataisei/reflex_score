@@ -1,0 +1,55 @@
+ja:
+  devise:
+    sessions:
+      user:
+        signed_in: 'ログインしました。'
+        signed_out: 'ログアウトしました。'
+        invalid: 'メールアドレスまたはパスワードが違います。'
+    registrations:
+      user:
+        signed_up: 'アカウント登録が完了しました。'
+        updated: 'アカウント情報が更新されました。'
+        destroyed: 'アカウントが削除されました。'
+        update_needs_confirmation: 'アカウント情報が更新されました。新しいメールアドレスを確認してください。'
+    passwords:
+      user:
+        send_instructions: 'パスワード再設定の案内をメールで送りました。'
+        updated: 'パスワードが更新されました。'
+        updated_not_active: 'パスワードが更新されましたが、アカウントは有効化されていません。'
+    confirmations:
+      send_instructions: '確認メールを送りました。'
+      confirmed: 'アカウントが確認されました。'
+    unlocks:
+      send_instructions: 'アカウントロック解除の案内をメールで送りました。'
+      unlocked: 'アカウントのロックが解除されました。'
+    omniauth_callbacks:
+      success: '%{kind}アカウントでログインしました。'
+      failure: '%{kind}アカウントでのログインに失敗しました。'
+    failure:
+      already_authenticated: 'すでにログインしています。'
+      inactive: 'アカウントが有効化されていません。'
+      invalid: 'メールアドレスまたはパスワードが違います。'
+      locked: 'アカウントがロックされています。'
+      last_attempt: 'アカウントがロックされる前の最後の試行です。'
+      not_found_in_database: 'メールアドレスまたはパスワードが違います。'
+      timeout: 'セッションの有効期限が切れました。再度ログインしてください。'
+      unauthenticated: 'ログインしてください。'
+
+  errors:
+    messages:
+      expired: '有効期限が切れています。'
+      not_found: '見つかりませんでした。'
+      already_confirmed: 'すでに確認済みです。'
+      not_locked: 'アカウントはロックされていません。'
+      not_saved:
+        one: 'エラーが発生しました: 1つのエラー'
+        other: 'エラーが発生しました: %{count}つのエラー'
+
+  # モデル属性名の日本語化
+  activerecord:
+    attributes:
+      user:
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード（確認）'
+        remember_me: 'ログインを記憶する'

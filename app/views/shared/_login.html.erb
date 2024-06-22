@@ -21,6 +21,7 @@
       </div>
       <div class="sign-up-htm">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'login-form' }) do |f| %>
+        <%= render 'shared/error_messages', model: @user %>
           <div class="form-group">
             <%= f.label :username, "Username", class: 'label' %><span class="required">*</span>
             <%= f.text_field :username, class: 'form-control input', autofocus: true, autocomplete: "username" %>

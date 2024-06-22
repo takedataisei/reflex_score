@@ -3,3 +3,63 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%Y/%m/%d"
+      
+  activerecord:
+    models:
+      user: ユーザー
+      community: コミュニティ
+      evaluation_item: 評価項目
+      peer_evaluation: 他者評価
+      self_evaluation: 自己評価
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認）
+        username: ユーザー名
+      community:
+        name: コミュニティ名
+        password_digest: パスワード
+        description: 説明
+      evaluation_item:
+        name: 評価項目名
+      peer_evaluation:
+        evaluator_id: 評価者ID
+        evaluatee_id: 被評価者ID
+        score: スコア
+        comment: コメント
+      self_evaluation:
+        user_id: ユーザーID
+        evaluation_item_id: 評価項目ID
+        score: スコア
+        comment: コメント
+    errors:
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "削除できません。%{record}が存在します。"
+          has_many: "削除できません。%{record}が存在します。"
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      inclusion: "は一覧にありません"
+      exclusion: "は予約済みです"
+      invalid: "は無効です"
+      confirmation: "と%{attribute}の入力が一致しません"
+      accepted: "を承認してください"
+      empty: "を入力してください"
+      blank: "を入力してください"
+      present: "は空にしてください"
+      too_long: "は%{count}文字以内で入力してください"
+      too_short: "は%{count}文字以上で入力してください"
+      wrong_length: "の長さが%{count}文字ではありません"
+      not_a_number: "は数値で入力してください"
+      not_an_integer: "は整数で入力してください"
+      greater_than: "は%{count}より大きい値にしてください"
+      greater_than_or_equal_to: "は%{count}以上の値にしてください"
+      equal_to: "は%{count}にしてください"
+      less_than: "は%{count}より小さい値にしてください"
+      less_than_or_equal_to: "は%{count}以下の値にしてください"
+      other_than: "は%{count}以外の値にしてください"
+      odd: "は奇数にしてください"
+      even: "は偶数にしてください"
