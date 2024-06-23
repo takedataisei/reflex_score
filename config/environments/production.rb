@@ -42,8 +42,8 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
-  config.action_cable.url = 'wss://your-app-name.onrender.com/cable'
-  config.action_cable.allowed_request_origins = ['https://your-app-name.onrender.com', /http:\/\/your-app-name/]
+  config.action_cable.url = 'wss://reflex_score.onrender.com/cable'
+  config.action_cable.allowed_request_origins = ['https://reflex_score.onrender.com', /http:\/\/reflex_score/]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
