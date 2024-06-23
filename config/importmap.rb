@@ -9,4 +9,3 @@ pin 'communities', to: 'communities.js'
 pin 'star', to: 'star.js'
 pin "@rails/actioncable", to: "actioncable.esm.js"
 pin_all_from "app/javascript/channels", under: "channels"
-pin "@rails/ujs", to: "rails-ujs.js"
