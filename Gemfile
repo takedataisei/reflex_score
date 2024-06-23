@@ -78,3 +78,7 @@ gem 'image_processing', '~> 1.2'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'redis', '~> 4.0'
+
+group :production do
+  gem 'pg'
+end
