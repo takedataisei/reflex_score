@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: reflex_score
+    env: ruby
+    buildCommand: bundle exec rails assets:precompile
+    startCommand: bundle exec rails server -e production
+    plan: free
+    repo: https://github.com/reflex_score/your-repo
+    region: oregon
