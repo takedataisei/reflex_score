@@ -1,4 +1,4 @@
-import consumer from "./consumer"
+import consumer from "channels/consumer"
 
 const initializeChat = () => {
   const communityElement = document.getElementById('community-id');
