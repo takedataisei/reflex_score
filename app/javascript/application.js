@@ -3,8 +3,6 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import 'communities'
 import 'star'
-import "channels/consumer"
 import "channels"
 import { Turbo } from "@hotwired/turbo-rails"
 Turbo.session.drive = true
-
