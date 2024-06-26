@@ -41,6 +41,8 @@ ja:
       not_found: '見つかりませんでした。'
       already_confirmed: 'すでに確認済みです。'
       not_locked: 'アカウントはロックされていません。'
+      taken: 'この%{attribute}は既に使用されています。'
+      record_invalid: 'バリデーションに失敗しました: %{errors}'
       not_saved:
         one: 'エラーが発生しました: 1つのエラー'
         other: 'エラーが発生しました: %{count}つのエラー'
