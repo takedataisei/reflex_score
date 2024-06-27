@@ -42,7 +42,7 @@ https://reflex-score.onrender.com
 Reflex Scoreは、自己理解を深めるだけでなく、さまざまな場面でのコミュニティの成長と発展を支援します。
 
 # 洗い出した要件
-[要件を定義したシート](https://docs.google.com/spreadsheets/d/1aHKCJ5A8oDKBJOcMuLF7TUl8I2dH9FsKB1Iv7InK4xw/edit?gid=982722306#gid=982722306)
+[要件を定義したシート](https://docs.google.com/spreadsheets/d/1aHKCJ5A8oDKBJOcMuLF7TUl8I2dH9FsKB1Iv7InK4xw/edit?usp=sharing)
 
 # 実装予定の機能
 評価結果をグラフにまとめる機能  
